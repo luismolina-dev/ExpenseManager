@@ -16,6 +16,11 @@ public class Entries {
     @Column(name = "amount")
     private double amount;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
+    private Category category;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private Type type;
 
