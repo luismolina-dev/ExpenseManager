@@ -11,10 +11,10 @@ import java.time.LocalDate;
 public class Entry {
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Column(name = "amount")
-    private double amount;
+    private Double amount;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
