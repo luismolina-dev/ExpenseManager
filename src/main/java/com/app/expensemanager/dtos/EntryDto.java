@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddEntry {
+public class EntryDto {
     Double amount;
     Category category;
     Type type;

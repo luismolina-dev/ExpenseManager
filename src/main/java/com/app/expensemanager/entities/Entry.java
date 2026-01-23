@@ -1,14 +1,21 @@
 package com.app.expensemanager.entities;
 
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
-@DataAmount
 @Table(name = "entries")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Entry {
+
     @Id
     @GeneratedValue
     private Integer id;
