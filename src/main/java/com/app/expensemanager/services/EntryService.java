@@ -3,21 +3,20 @@ package com.app.expensemanager.services;
 import com.app.expensemanager.dtos.EntryDto;
 import com.app.expensemanager.entities.Entry;
 import com.app.expensemanager.repositories.EntryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EntryService {
 
     private final EntryRepository entryRepository;
 
-    public EntryService(EntryRepository entryRepository) {
-        this.entryRepository = entryRepository;
-    }
-
     public EntryDto convertToDto(Entry entry){
         EntryDto entryDto = new EntryDto();
+        entryDto.setId(entry.getId());
         entryDto.setAmount(entry.getAmount());
         entryDto.setCategory(entry.getCategory());
         entryDto.setType(entry.getType());
