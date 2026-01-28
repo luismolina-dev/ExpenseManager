@@ -39,4 +39,27 @@ public class EntryService {
         return entryRepository.findAll().stream().map(this::convertToDto).toList();
     }
 
+    public EntryDto getById(Integer id){
+        Entry entry = entryRepository.findById(id).orElseThrow();
+
+        return convertToDto(entry);
+    }
+
+    public EntryDto updateEntry(Integer id, EntryDto entryDto){
+        Entry entry = entryRepository.findById(id).orElseThrow();
+
+        entry.setAmount(entryDto.getAmount());
+        entry.setCategory(entryDto.getCategory());
+        entry.setType(entryDto.getType());
+        entry.setDate(entryDto.getDate());
+
+        Entry updateEntry = entryRepository.save(entry);
+
+        return convertToDto(updateEntry);
+    }
+
+    public void delete(Integer id){
+        entryRepository.deleteById(id);
+    }
+
 }
