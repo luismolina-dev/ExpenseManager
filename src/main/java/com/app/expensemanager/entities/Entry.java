@@ -18,7 +18,7 @@ public class Entry {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     @Column(name = "amount")
     private Double amount;
