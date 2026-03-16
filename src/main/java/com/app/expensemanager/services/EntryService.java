@@ -38,6 +38,10 @@ public class EntryService {
         return entryMapper.toDto(entry);
     }
 
+    public Double getBalance() {
+        return entryRepository.getTotalIncome() - entryRepository.getTotalExpense();
+    }
+
     public EntryResponse updateEntry(Integer id, EntryDto entryDto){
         Entry entry = entryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Entry not found"));

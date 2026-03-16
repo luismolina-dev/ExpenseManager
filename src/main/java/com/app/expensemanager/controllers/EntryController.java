@@ -31,6 +31,11 @@ public class EntryController {
         return ResponseEntity.ok(entryService.getById(entryId));
     }
 
+    @GetMapping("/balance")
+    public ResponseEntity<Double> getBalance(){
+        return ResponseEntity.ok(entryService.getBalance());
+    }
+
     @PatchMapping("/{entryId}")
     public ResponseEntity<EntryResponse> updateEntry(@PathVariable Integer entryId, @RequestBody EntryDto entryDto){
         return ResponseEntity.ok(entryService.updateEntry(entryId, entryDto));
