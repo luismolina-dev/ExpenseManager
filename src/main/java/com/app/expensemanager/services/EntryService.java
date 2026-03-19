@@ -38,6 +38,10 @@ public class EntryService {
         return entryMapper.toDto(entry);
     }
 
+    public Double getTotalIncome(){
+        return entryRepository.getTotalIncome();
+    }
+
     public Double getBalance() {
         return entryRepository.getTotalIncome() - entryRepository.getTotalExpense();
     }
