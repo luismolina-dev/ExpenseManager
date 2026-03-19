@@ -31,6 +31,11 @@ public class EntryController {
         return ResponseEntity.ok(entryService.getById(entryId));
     }
 
+    @GetMapping("/income")
+    public  ResponseEntity<Double> getTotalIncome(){
+        return ResponseEntity.ok(entryService.getTotalIncome());
+    }
+
     @GetMapping("/balance")
     public ResponseEntity<Double> getBalance(){
         return ResponseEntity.ok(entryService.getBalance());
