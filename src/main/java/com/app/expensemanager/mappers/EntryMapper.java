@@ -6,19 +6,17 @@ import com.app.expensemanager.entities.Entry;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EntryMapper implements EntityMapper<EntryDto, Entry>{
+public class EntryMapper {
 
-    @Override
     public Entry toEntity(EntryDto entryDto) {
-        Entry entry = new Entry();
-        entry.setAmount(entryDto.getAmount());
-        entry.setCategory(entryDto.getCategory());
-        entry.setType(entryDto.getType());
-        entry.setDate(entryDto.getDate());
-        return entry;
+        return Entry.builder()
+                .amount(entryDto.getAmount())
+                .category(entryDto.getCategory())
+                .type(entryDto.getType())
+                .date(entryDto.getDate())
+                .build();
     }
 
-    @Override
     public void updateEntity(Entry entry, EntryDto entryDto) {
         entry.setAmount(entryDto.getAmount());
         entry.setCategory(entryDto.getCategory());
@@ -26,15 +24,13 @@ public class EntryMapper implements EntityMapper<EntryDto, Entry>{
         entry.setDate(entryDto.getDate());
     }
 
-    @Override
-    public EntryResponse toDto(Entry entry) {
-        EntryResponse entryDto = new EntryResponse();
-        entryDto.setId(entry.getId());
-        entryDto.setAmount(entry.getAmount());
-        entryDto.setCategory(entry.getCategory());
-        entryDto.setType(entry.getType());
-        entryDto.setDate(entry.getDate());
-        return entryDto;
+    public EntryResponse toResponse(Entry entry) {
+        return EntryResponse.builder()
+                .id(entry.getId())
+                .amount(entry.getAmount())
+                .category(entry.getCategory())
+                .type(entry.getType())
+                .date(entry.getDate())
+                .build();
     }
-
 }

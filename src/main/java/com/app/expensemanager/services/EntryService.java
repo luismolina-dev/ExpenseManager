@@ -24,18 +24,18 @@ public class EntryService {
         Entry entry = entryMapper.toEntity(entryDto);
         Entry savedEntry = entryRepository.save(entry);
 
-        return entryMapper.toDto(savedEntry);
+        return entryMapper.toResponse(savedEntry);
     }
 
     public List<EntryResponse> getAllEntries(){
-        return entryRepository.findAll().stream().map(entryMapper::toDto).toList();
+        return entryRepository.findAll().stream().map(entryMapper::toResponse).toList();
     }
 
     public EntryResponse getById(Integer id){
         Entry entry = entryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Entry not found"));
 
-        return entryMapper.toDto(entry);
+        return entryMapper.toResponse(entry);
     }
 
     public Double getTotalIncome(){
@@ -54,7 +54,7 @@ public class EntryService {
 
         Entry updateEntry = entryRepository.save(entry);
 
-        return entryMapper.toDto(updateEntry);
+        return entryMapper.toResponse(updateEntry);
     }
 
     public void delete(Integer id){
